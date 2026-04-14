@@ -33,9 +33,9 @@
         .section-title { font-size: 2.5rem; font-weight: 500; text-align: center; margin-bottom: 3rem; }
         
         .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
-        .product-card { border: 1px solid #ddd; border-radius: 8px; padding: 1.5rem; text-align: center; transition: all 0.3s; cursor: pointer; overflow: hidden; }
-        .product-card:hover { border-color: #bbb; transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); }
-        .product-image { height: 240px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%); border-radius: 8px; }
+        .product-card { border: 1px solid #ddd; border-radius: 12px; padding: 1.5rem; text-align: center; transition: all 0.3s; cursor: pointer; overflow: hidden; }
+        .product-card:hover { border-color: #bbb; transform: translateY(-4px); box-shadow: 0 12px 28px rgba(0, 0, 0, 0.09); }
+        .product-image { height: 300px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; border-radius: 10px; overflow: hidden; position: relative; }
         .product-image svg { width: 100%; height: 100%; }
         .product-card h3 { font-size: 1.25rem; font-weight: 500; margin-bottom: 0.5rem; }
         .product-card p { font-size: 0.95rem; color: #666; margin-bottom: 1.5rem; }
@@ -93,20 +93,45 @@
     <section class="products" id="shop">
         <h2 class="section-title">Our Collection</h2>
         <div class="product-grid">
-            <!-- Perfect Yellow Banana -->
+
+            <!-- ===== 1. CLASSIC TEE ===== -->
             <div class="product-card">
                 <div class="product-image">
-                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg">
                         <defs>
-                            <linearGradient id="perfect" x1="0%" y1="0%" x2="0%" y2="100%">
-                                <stop offset="0%" style="stop-color:#FFD54F;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#FBC02D;stop-opacity:1" />
-                            </linearGradient>
+                            <linearGradient id="bg1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#f5f3ed"/><stop offset="100%" stop-color="#eae6dc"/></linearGradient>
+                            <linearGradient id="s1" x1="40%" y1="0%" x2="60%" y2="100%"><stop offset="0%" stop-color="#fff"/><stop offset="100%" stop-color="#f0ede4"/></linearGradient>
+                            <linearGradient id="s1shade" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#e8e4da"/><stop offset="40%" stop-color="#f5f2ea" stop-opacity="0"/></linearGradient>
+                            <linearGradient id="bp1" x1="20%" y1="0%" x2="80%" y2="100%"><stop offset="0%" stop-color="#FFE88A"/><stop offset="40%" stop-color="#FDD835"/><stop offset="100%" stop-color="#F9A825"/></linearGradient>
+                            <linearGradient id="bp1h" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FFF9C4"/><stop offset="100%" stop-color="#FFE082"/></linearGradient>
+                            <filter id="d1"><feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#9e9680" flood-opacity="0.18"/></filter>
+                            <filter id="d1b"><feDropShadow dx="0.5" dy="1.5" stdDeviation="1.8" flood-color="#8a7a5a" flood-opacity="0.12"/></filter>
                         </defs>
-                        <ellipse cx="100" cy="100" rx="50" ry="70" fill="url(#perfect)" stroke="#F57F17" stroke-width="2"/>
-                        <path d="M 65 40 Q 60 20 63 5" stroke="#6D4C41" stroke-width="3" fill="none" stroke-linecap="round"/>
-                        <ellipse cx="80" cy="90" rx="2.5" ry="4" fill="#6D4C41" opacity="0.5"/>
-                        <path d="M 75 125 Q 100 140 125 125" stroke="#F57F17" stroke-width="2" fill="none" stroke-linecap="round"/>
+                        <rect width="320" height="320" fill="url(#bg1)"/>
+                        <!-- Shirt -->
+                        <path d="M108 80 L88 86 L56 68 L38 92 L70 118 L70 266 Q70 276 80 276 L240 276 Q250 276 250 266 L250 118 L282 92 L264 68 L232 86 L212 80 Q192 66 160 66 Q128 66 108 80Z" fill="url(#s1)" stroke="#d8d2c4" stroke-width="1" filter="url(#d1)"/>
+                        <!-- Side shading -->
+                        <path d="M70 118 L70 266 Q70 276 80 276 L110 276 L110 118Z" fill="url(#s1shade)" opacity="0.5"/>
+                        <!-- Collar -->
+                        <path d="M108 80 Q128 96 160 98 Q192 96 212 80" fill="none" stroke="#c8c0b0" stroke-width="1.6" stroke-linecap="round"/>
+                        <!-- Sleeve seams -->
+                        <line x1="70" y1="118" x2="88" y2="86" stroke="#e0d8c8" stroke-width="0.5" opacity="0.6"/>
+                        <line x1="250" y1="118" x2="232" y2="86" stroke="#e0d8c8" stroke-width="0.5" opacity="0.6"/>
+                        <!-- Hem stitch -->
+                        <path d="M80 272 L240 272" stroke="#ddd6c6" stroke-width="0.5" stroke-dasharray="4,3"/>
+                        <!-- Banana -->
+                        <g filter="url(#d1b)" transform="translate(118, 106)">
+                            <path d="M48 6 C36 14 22 32 14 56 C8 76 6 96 10 112 C14 126 22 136 32 140 L36 136 C28 130 22 120 18 108 C14 92 16 74 22 54 C28 36 38 20 48 12Z" fill="url(#bp1)" stroke="#d4960e" stroke-width="0.5"/>
+                            <path d="M48 12 C40 20 30 36 24 56 C18 74 16 92 20 108 C24 120 30 128 38 132 L40 128 C34 122 28 114 24 102 C20 88 22 72 28 54 C34 38 42 24 48 18Z" fill="url(#bp1h)"/>
+                            <path d="M44 20 C36 34 28 52 24 72 C22 86 22 100 26 110" stroke="rgba(255,255,255,0.5)" stroke-width="3" fill="none" stroke-linecap="round"/>
+                            <!-- Stem -->
+                            <path d="M48 6 C52 0 56 -4 62 -6 C66 -6 66 -4 64 -2 C60 2 54 4 48 6Z" fill="#8d6e63" stroke="#6d4c41" stroke-width="0.5"/>
+                            <!-- Tip -->
+                            <path d="M32 140 C34 146 38 148 40 146 C40 142 36 138 32 140Z" fill="#c8870e"/>
+                            <!-- Slight spot -->
+                            <ellipse cx="28" cy="82" rx="2.5" ry="3.5" fill="#c09020" opacity="0.3" transform="rotate(-10,28,82)"/>
+                        </g>
+                        <text x="160" y="260" text-anchor="middle" font-family="Georgia,serif" font-size="6.5" fill="#bfb69e" letter-spacing="3">SLIGHTLY USED</text>
                     </svg>
                 </div>
                 <h3>Classic Tee</h3>
@@ -114,22 +139,47 @@
                 <div class="product-price">$24.99</div>
                 <button class="btn btn-primary btn-small">Add to Cart</button>
             </div>
-            
-            <!-- Green Unripe Banana -->
+
+            <!-- ===== 2. ARTIST COLLAB ===== -->
             <div class="product-card">
                 <div class="product-image">
-                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg">
                         <defs>
-                            <linearGradient id="green" x1="0%" y1="0%" x2="0%" y2="100%">
-                                <stop offset="0%" style="stop-color:#81C784;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#558B2F;stop-opacity:1" />
-                            </linearGradient>
+                            <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#181818"/><stop offset="100%" stop-color="#0e0e0e"/></linearGradient>
+                            <linearGradient id="s2" x1="40%" y1="0%" x2="60%" y2="100%"><stop offset="0%" stop-color="#222"/><stop offset="100%" stop-color="#1a1a1a"/></linearGradient>
+                            <linearGradient id="s2shade" x1="100%" y1="0%" x2="0%" y2="0%"><stop offset="0%" stop-color="#2a2a2a"/><stop offset="40%" stop-color="#222" stop-opacity="0"/></linearGradient>
+                            <linearGradient id="gp1" x1="20%" y1="0%" x2="80%" y2="100%"><stop offset="0%" stop-color="#A5D6A7"/><stop offset="40%" stop-color="#66BB6A"/><stop offset="100%" stop-color="#2E7D32"/></linearGradient>
+                            <linearGradient id="gp1h" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#C8E6C9"/><stop offset="100%" stop-color="#81C784"/></linearGradient>
+                            <filter id="d2"><feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#000" flood-opacity="0.35"/></filter>
+                            <filter id="d2b"><feDropShadow dx="0.5" dy="1.5" stdDeviation="2" flood-color="#000" flood-opacity="0.2"/></filter>
+                            <filter id="gl2"><feGaussianBlur stdDeviation="8"/></filter>
                         </defs>
-                        <ellipse cx="100" cy="100" rx="48" ry="72" fill="url(#green)" stroke="#33691E" stroke-width="2.5"/>
-                        <path d="M 65 38 Q 60 15 63 2" stroke="#2E7D32" stroke-width="3" fill="none" stroke-linecap="round"/>
-                        <line x1="75" y1="50" x2="72" y2="70" stroke="#1B5E20" stroke-width="1" opacity="0.4"/>
-                        <line x1="125" y1="55" x2="128" y2="75" stroke="#1B5E20" stroke-width="1" opacity="0.4"/>
-                        <path d="M 75 130 Q 100 145 125 130" stroke="#2E7D32" stroke-width="2" fill="none" stroke-linecap="round"/>
+                        <rect width="320" height="320" fill="url(#bg2)"/>
+                        <!-- Shirt -->
+                        <path d="M108 80 L88 86 L56 68 L38 92 L70 118 L70 266 Q70 276 80 276 L240 276 Q250 276 250 266 L250 118 L282 92 L264 68 L232 86 L212 80 Q192 66 160 66 Q128 66 108 80Z" fill="url(#s2)" stroke="#2e2e2e" stroke-width="0.8" filter="url(#d2)"/>
+                        <path d="M240 118 L240 266 Q240 276 240 276 L210 276 L210 118Z" fill="url(#s2shade)" opacity="0.4"/>
+                        <path d="M108 80 Q128 96 160 98 Q192 96 212 80" fill="none" stroke="#3a3a3a" stroke-width="1.6" stroke-linecap="round"/>
+                        <path d="M80 272 L240 272" stroke="#2a2a2a" stroke-width="0.5" stroke-dasharray="4,3"/>
+                        <!-- Paint glow -->
+                        <ellipse cx="152" cy="168" rx="48" ry="60" fill="#43A047" opacity="0.07" filter="url(#gl2)"/>
+                        <!-- Banana -->
+                        <g filter="url(#d2b)" transform="translate(112, 105)">
+                            <path d="M48 6 C36 14 22 32 14 56 C8 76 6 96 10 112 C14 126 22 136 32 140 L36 136 C28 130 22 120 18 108 C14 92 16 74 22 54 C28 36 38 20 48 12Z" fill="url(#gp1)" stroke="#1b5e20" stroke-width="0.6"/>
+                            <path d="M48 12 C40 20 30 36 24 56 C18 74 16 92 20 108 C24 120 30 128 38 132 L40 128 C34 122 28 114 24 102 C20 88 22 72 28 54 C34 38 42 24 48 18Z" fill="url(#gp1h)"/>
+                            <path d="M44 20 C36 34 28 52 24 72 C22 86 22 100 26 110" stroke="rgba(255,255,255,0.18)" stroke-width="3" fill="none" stroke-linecap="round"/>
+                            <path d="M48 6 C52 0 56 -4 62 -6 C66 -6 66 -4 64 -2 C60 2 54 4 48 6Z" fill="#5d4037" stroke="#4e342e" stroke-width="0.6"/>
+                            <path d="M32 140 C34 146 38 148 40 146 C40 142 36 138 32 140Z" fill="#1b5e20"/>
+                        </g>
+                        <!-- Paint drips & spatters -->
+                        <path d="M122 232 C120 240 121 252 120 262" stroke="#66BB6A" stroke-width="2.2" stroke-linecap="round" fill="none" opacity="0.45"/>
+                        <path d="M152 248 C150 256 152 264 150 270" stroke="#81C784" stroke-width="1.6" stroke-linecap="round" fill="none" opacity="0.3"/>
+                        <circle cx="130" cy="138" r="2.5" fill="#A5D6A7" opacity="0.4"/>
+                        <circle cx="190" cy="162" r="2" fill="#81C784" opacity="0.3"/>
+                        <circle cx="198" cy="195" r="3.2" fill="#66BB6A" opacity="0.18"/>
+                        <circle cx="108" cy="198" r="1.6" fill="#C8E6C9" opacity="0.28"/>
+                        <circle cx="185" cy="145" r="1.4" fill="#A5D6A7" opacity="0.22"/>
+                        <circle cx="118" cy="175" r="1.8" fill="#4CAF50" opacity="0.2"/>
+                        <text x="160" y="262" text-anchor="middle" font-family="Georgia,serif" font-size="6" fill="#4a4a4a" letter-spacing="3">ARTIST COLLAB</text>
                     </svg>
                 </div>
                 <h3>Artist Collab</h3>
@@ -137,21 +187,49 @@
                 <div class="product-price">$32.99</div>
                 <button class="btn btn-primary btn-small">Add to Cart</button>
             </div>
-            
-            <!-- Tiny Baby Banana -->
+
+            <!-- ===== 3. MINI BANANA ===== -->
             <div class="product-card">
                 <div class="product-image">
-                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg">
                         <defs>
-                            <linearGradient id="tiny" x1="0%" y1="0%" x2="0%" y2="100%">
-                                <stop offset="0%" style="stop-color:#FFD54F;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#FBC02D;stop-opacity:1" />
-                            </linearGradient>
+                            <linearGradient id="bg3" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#E8F4FD"/><stop offset="100%" stop-color="#D0E8F8"/></linearGradient>
+                            <linearGradient id="s3" x1="40%" y1="0%" x2="60%" y2="100%"><stop offset="0%" stop-color="#90CAF9"/><stop offset="100%" stop-color="#6AB4F0"/></linearGradient>
+                            <linearGradient id="kp1" x1="20%" y1="0%" x2="80%" y2="100%"><stop offset="0%" stop-color="#FFE88A"/><stop offset="40%" stop-color="#FFD54F"/><stop offset="100%" stop-color="#FFCA28"/></linearGradient>
+                            <linearGradient id="kp1h" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FFF9C4"/><stop offset="100%" stop-color="#FFE082"/></linearGradient>
+                            <filter id="d3"><feDropShadow dx="0" dy="5" stdDeviation="6" flood-color="#3a6ea5" flood-opacity="0.12"/></filter>
+                            <filter id="d3b"><feDropShadow dx="0.5" dy="1" stdDeviation="1.5" flood-color="#8a7a5a" flood-opacity="0.1"/></filter>
                         </defs>
-                        <ellipse cx="100" cy="110" rx="32" ry="48" fill="url(#tiny)" stroke="#F57F17" stroke-width="1.5"/>
-                        <path d="M 80 70 Q 77 55 79 42" stroke="#6D4C41" stroke-width="2" fill="none" stroke-linecap="round"/>
-                        <circle cx="90" cy="100" r="1.5" fill="#6D4C41" opacity="0.4"/>
-                        <path d="M 83 130 Q 100 140 117 130" stroke="#F57F17" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+                        <rect width="320" height="320" fill="url(#bg3)"/>
+                        <!-- Kids tee -->
+                        <path d="M116 88 L98 92 L70 76 L56 96 L82 116 L82 256 Q82 266 92 266 L228 266 Q238 266 238 256 L238 116 L264 96 L250 76 L222 92 L204 88 Q190 76 160 76 Q130 76 116 88Z" fill="url(#s3)" stroke="#5a9fd4" stroke-width="1" filter="url(#d3)"/>
+                        <path d="M116 88 Q134 102 160 104 Q186 102 204 88" fill="none" stroke="#4a8dc0" stroke-width="1.6" stroke-linecap="round"/>
+                        <path d="M92 262 L228 262" stroke="#5090c4" stroke-width="0.5" stroke-dasharray="3,3"/>
+                        <!-- Kawaii banana -->
+                        <g filter="url(#d3b)" transform="translate(126, 118)">
+                            <path d="M38 4 C28 12 18 26 12 44 C8 60 6 76 10 88 C14 98 20 104 26 106 L30 102 C24 98 20 90 16 80 C12 66 14 52 20 36 C24 24 32 14 38 10Z" fill="url(#kp1)" stroke="#d4960e" stroke-width="0.5"/>
+                            <path d="M38 10 C32 16 24 28 20 42 C16 56 14 70 18 82 C22 92 26 98 32 100 L34 96 C28 92 24 86 22 76 C18 64 20 50 24 38 C28 28 34 18 38 14Z" fill="url(#kp1h)"/>
+                            <path d="M36 14 C30 24 24 40 20 56 C18 68 18 78 22 86" stroke="rgba(255,255,255,0.5)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                            <path d="M38 4 C40 0 44 -2 46 -2 C48 -2 48 0 46 2 C44 4 40 4 38 4Z" fill="#a1887f" stroke="#8d6e63" stroke-width="0.4"/>
+                            <ellipse cx="28" cy="108" rx="3" ry="3.5" fill="#c8942a" opacity="0.5"/>
+                            <!-- Face -->
+                            <ellipse cx="22" cy="50" rx="3" ry="4" fill="#4e342e"/>
+                            <ellipse cx="34" cy="48" rx="3" ry="4" fill="#4e342e"/>
+                            <circle cx="23.2" cy="48.5" r="1.2" fill="#fff"/>
+                            <circle cx="35.2" cy="46.5" r="1.2" fill="#fff"/>
+                            <ellipse cx="16" cy="58" rx="4.5" ry="2.2" fill="#FF8A80" opacity="0.3"/>
+                            <ellipse cx="40" cy="56" rx="4.5" ry="2.2" fill="#FF8A80" opacity="0.3"/>
+                            <path d="M22 62 C26 70 32 70 36 62" stroke="#5d4037" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+                            <path d="M27 64 C28 68 30 68 31 64" fill="#ef9a9a"/>
+                        </g>
+                        <!-- Sparkles -->
+                        <g fill="#FDD835" font-family="sans-serif">
+                            <text x="198" y="130" font-size="11" opacity="0.55">✦</text>
+                            <text x="110" y="206" font-size="8" opacity="0.4">✦</text>
+                            <text x="212" y="198" font-size="7" opacity="0.45">✦</text>
+                            <text x="118" y="142" font-size="6" opacity="0.35">✧</text>
+                        </g>
+                        <text x="160" y="252" text-anchor="middle" font-family="Georgia,serif" font-size="6" fill="#3d7ab5" letter-spacing="2">LIL' BANANA</text>
                     </svg>
                 </div>
                 <h3>Mini Banana</h3>
@@ -159,27 +237,49 @@
                 <div class="product-price">$19.99</div>
                 <button class="btn btn-primary btn-small">Add to Cart</button>
             </div>
-            
-            <!-- Spotted Overripe Banana -->
+
+            <!-- ===== 4. NIGHT SHIFT ===== -->
             <div class="product-card">
                 <div class="product-image">
-                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg">
                         <defs>
-                            <linearGradient id="spotted" x1="0%" y1="0%" x2="0%" y2="100%">
-                                <stop offset="0%" style="stop-color:#FFA726;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#E65100;stop-opacity:1" />
-                            </linearGradient>
+                            <linearGradient id="bg4" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#141828"/><stop offset="100%" stop-color="#0c0e1a"/></linearGradient>
+                            <linearGradient id="s4" x1="40%" y1="0%" x2="60%" y2="100%"><stop offset="0%" stop-color="#1e2840"/><stop offset="100%" stop-color="#182030"/></linearGradient>
+                            <linearGradient id="s4shade" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#162038"/><stop offset="40%" stop-color="#1e2840" stop-opacity="0"/></linearGradient>
+                            <linearGradient id="rp1" x1="20%" y1="0%" x2="80%" y2="100%"><stop offset="0%" stop-color="#FFCC80"/><stop offset="30%" stop-color="#FFA726"/><stop offset="100%" stop-color="#E65100"/></linearGradient>
+                            <linearGradient id="rp1h" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FFE0B2"/><stop offset="100%" stop-color="#FFB74D"/></linearGradient>
+                            <filter id="d4"><feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#000" flood-opacity="0.4"/></filter>
+                            <filter id="d4b"><feDropShadow dx="0.5" dy="1.5" stdDeviation="1.8" flood-color="#000" flood-opacity="0.18"/></filter>
+                            <filter id="mg"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
                         </defs>
-                        <ellipse cx="100" cy="100" rx="52" ry="72" fill="url(#spotted)" stroke="#BF360C" stroke-width="2"/>
-                        <path d="M 65 38 Q 60 15 63 2" stroke="#3E2723" stroke-width="3" fill="none" stroke-linecap="round"/>
-                        <!-- Brown spots -->
-                        <circle cx="78" cy="70" r="3.5" fill="#3E2723" opacity="0.65"/>
-                        <circle cx="98" cy="82" r="3" fill="#3E2723" opacity="0.65"/>
-                        <circle cx="88" cy="108" r="3.2" fill="#3E2723" opacity="0.65"/>
-                        <circle cx="120" cy="95" r="2.8" fill="#3E2723" opacity="0.65"/>
-                        <circle cx="112" cy="130" r="3.3" fill="#3E2723" opacity="0.65"/>
-                        <circle cx="70" cy="125" r="2.5" fill="#3E2723" opacity="0.65"/>
-                        <path d="M 75 135 Q 100 150 125 135" stroke="#BF360C" stroke-width="2" fill="none" stroke-linecap="round"/>
+                        <rect width="320" height="320" fill="url(#bg4)"/>
+                        <!-- Shirt -->
+                        <path d="M108 80 L88 86 L56 68 L38 92 L70 118 L70 266 Q70 276 80 276 L240 276 Q250 276 250 266 L250 118 L282 92 L264 68 L232 86 L212 80 Q192 66 160 66 Q128 66 108 80Z" fill="url(#s4)" stroke="#283850" stroke-width="0.8" filter="url(#d4)"/>
+                        <path d="M70 118 L70 266 Q70 276 80 276 L108 276 L108 118Z" fill="url(#s4shade)" opacity="0.5"/>
+                        <path d="M108 80 Q128 96 160 98 Q192 96 212 80" fill="none" stroke="#2a3a50" stroke-width="1.6" stroke-linecap="round"/>
+                        <path d="M80 272 L240 272" stroke="#222e42" stroke-width="0.5" stroke-dasharray="4,3"/>
+                        <!-- Moon -->
+                        <circle cx="206" cy="106" r="14" fill="#FFF9C4" opacity="0.8" filter="url(#mg)"/>
+                        <circle cx="200" cy="103" r="12.5" fill="url(#s4)"/>
+                        <!-- Stars -->
+                        <circle cx="182" cy="96" r="1" fill="#FFF9C4" opacity="0.65"/><circle cx="226" cy="116" r="1.3" fill="#FFF9C4" opacity="0.55"/><circle cx="192" cy="126" r="0.8" fill="#FFF9C4" opacity="0.45"/><circle cx="218" cy="100" r="0.6" fill="#FFF9C4" opacity="0.4"/><circle cx="232" cy="128" r="0.9" fill="#FFF9C4" opacity="0.4"/><circle cx="174" cy="112" r="0.5" fill="#FFF9C4" opacity="0.35"/>
+                        <!-- Banana -->
+                        <g filter="url(#d4b)" transform="translate(110, 108)">
+                            <path d="M48 6 C36 14 22 32 14 56 C8 76 6 96 10 112 C14 126 22 136 32 140 L36 136 C28 130 22 120 18 108 C14 92 16 74 22 54 C28 36 38 20 48 12Z" fill="url(#rp1)" stroke="#bf360c" stroke-width="0.5"/>
+                            <path d="M48 12 C40 20 30 36 24 56 C18 74 16 92 20 108 C24 120 30 128 38 132 L40 128 C34 122 28 114 24 102 C20 88 22 72 28 54 C34 38 42 24 48 18Z" fill="url(#rp1h)"/>
+                            <path d="M44 20 C36 34 28 52 24 72 C22 86 22 100 26 110" stroke="rgba(255,255,255,0.14)" stroke-width="3" fill="none" stroke-linecap="round"/>
+                            <!-- Overripe spots -->
+                            <ellipse cx="36" cy="38" rx="4" ry="5" fill="#3e2723" opacity="0.55" transform="rotate(-12,36,38)"/>
+                            <ellipse cx="26" cy="62" rx="4.5" ry="5.5" fill="#3e2723" opacity="0.6" transform="rotate(8,26,62)"/>
+                            <ellipse cx="22" cy="88" rx="3.5" ry="4.5" fill="#3e2723" opacity="0.5" transform="rotate(-6,22,88)"/>
+                            <ellipse cx="30" cy="108" rx="4" ry="4.5" fill="#3e2723" opacity="0.5" transform="rotate(4,30,108)"/>
+                            <ellipse cx="40" cy="54" rx="2.5" ry="3" fill="#4e342e" opacity="0.4"/>
+                            <ellipse cx="34" cy="78" rx="2" ry="2.5" fill="#4e342e" opacity="0.35"/>
+                            <ellipse cx="28" cy="120" rx="3" ry="3.5" fill="#3e2723" opacity="0.4" transform="rotate(-5,28,120)"/>
+                            <path d="M48 6 C52 0 56 -4 62 -6 C66 -6 66 -4 64 -2 C60 2 54 4 48 6Z" fill="#5d4037" stroke="#3e2723" stroke-width="0.6"/>
+                            <path d="M32 140 C34 146 38 148 40 146 C40 142 36 138 32 140Z" fill="#6d3012"/>
+                        </g>
+                        <text x="160" y="262" text-anchor="middle" font-family="Georgia,serif" font-size="6" fill="#3e4e64" letter-spacing="2.5">NIGHT SHIFT</text>
                     </svg>
                 </div>
                 <h3>Night Shift Tee</h3>
@@ -187,21 +287,37 @@
                 <div class="product-price">$28.99</div>
                 <button class="btn btn-primary btn-small">Add to Cart</button>
             </div>
-            
-            <!-- Severely Curved Banana -->
+
+            <!-- ===== 5. OVERSIZED VIBE ===== -->
             <div class="product-card">
                 <div class="product-image">
-                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg">
                         <defs>
-                            <linearGradient id="curved" x1="0%" y1="0%" x2="0%" y2="100%">
-                                <stop offset="0%" style="stop-color:#FFD54F;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#FBC02D;stop-opacity:1" />
-                            </linearGradient>
+                            <linearGradient id="bg5" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#f8f4ea"/><stop offset="100%" stop-color="#f0eadc"/></linearGradient>
+                            <linearGradient id="s5" x1="40%" y1="0%" x2="60%" y2="100%"><stop offset="0%" stop-color="#FFF8E1"/><stop offset="100%" stop-color="#FFF0C0"/></linearGradient>
+                            <linearGradient id="s5shade" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#f0e6b8"/><stop offset="40%" stop-color="#FFF8E1" stop-opacity="0"/></linearGradient>
+                            <linearGradient id="op1" x1="20%" y1="0%" x2="80%" y2="100%"><stop offset="0%" stop-color="#FFE88A"/><stop offset="40%" stop-color="#FDD835"/><stop offset="100%" stop-color="#F9A825"/></linearGradient>
+                            <linearGradient id="op1h" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FFF9C4"/><stop offset="100%" stop-color="#FFE082"/></linearGradient>
+                            <filter id="d5"><feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#9e9068" flood-opacity="0.14"/></filter>
+                            <filter id="d5b"><feDropShadow dx="0.5" dy="1.5" stdDeviation="2" flood-color="#8a7a5a" flood-opacity="0.1"/></filter>
                         </defs>
-                        <path d="M 140 50 Q 115 85 95 135 Q 85 165 70 185" stroke="url(#curved)" stroke-width="42" stroke-linecap="round" fill="none" opacity="0.95"/>
-                        <path d="M 140 50 Q 115 85 95 135 Q 85 165 70 185" stroke="#F57F17" stroke-width="40" stroke-linecap="round" fill="none" opacity="0.5"/>
-                        <circle cx="138" cy="48" r="12" fill="#6D4C41"/>
-                        <path d="M 135 30 Q 133 15 137 5" stroke="#6D4C41" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                        <rect width="320" height="320" fill="url(#bg5)"/>
+                        <!-- Oversized tee (wider, dropped shoulders) -->
+                        <path d="M92 76 L68 82 L32 60 L12 86 L52 116 L52 274 Q52 284 62 284 L258 284 Q268 284 268 274 L268 116 L308 86 L288 60 L252 82 L228 76 Q202 58 160 58 Q118 58 92 76Z" fill="url(#s5)" stroke="#ddd6b8" stroke-width="1" filter="url(#d5)"/>
+                        <path d="M52 116 L52 274 Q52 284 62 284 L96 284 L96 116Z" fill="url(#s5shade)" opacity="0.4"/>
+                        <path d="M92 76 Q122 94 160 96 Q198 94 228 76" fill="none" stroke="#d0c898" stroke-width="1.6" stroke-linecap="round"/>
+                        <line x1="52" y1="116" x2="68" y2="82" stroke="#e2dac0" stroke-width="0.5" opacity="0.5"/>
+                        <line x1="268" y1="116" x2="252" y2="82" stroke="#e2dac0" stroke-width="0.5" opacity="0.5"/>
+                        <path d="M62 280 L258 280" stroke="#ddd4b4" stroke-width="0.5" stroke-dasharray="4,3"/>
+                        <!-- Big sweeping banana -->
+                        <g filter="url(#d5b)" transform="translate(86, 88) scale(1.2)">
+                            <path d="M90 6 C68 18 46 40 32 68 C20 92 14 116 16 134 C18 148 24 156 32 158 L36 154 C30 148 26 140 24 128 C22 112 26 92 36 68 C46 46 62 28 82 16Z" fill="url(#op1)" stroke="#d4960e" stroke-width="0.5"/>
+                            <path d="M82 16 C66 26 50 44 38 68 C28 90 24 110 26 128 C28 140 32 148 38 152 L40 148 C36 142 32 136 30 124 C28 108 32 90 40 68 C50 48 64 30 80 20Z" fill="url(#op1h)"/>
+                            <path d="M78 20 C62 34 48 54 38 78 C30 100 28 118 30 130" stroke="rgba(255,255,255,0.45)" stroke-width="4" fill="none" stroke-linecap="round"/>
+                            <path d="M90 6 C96 0 100 -4 106 -6 C110 -6 110 -2 108 0 C104 4 96 6 90 6Z" fill="#8d6e63" stroke="#6d4c41" stroke-width="0.5"/>
+                            <ellipse cx="34" cy="160" rx="4" ry="4.5" fill="#c8942a" opacity="0.5"/>
+                        </g>
+                        <text x="212" y="270" text-anchor="middle" font-family="Georgia,serif" font-size="6.5" fill="#c0ae72" letter-spacing="2" transform="rotate(-8,212,270)">OVERSIZED</text>
                     </svg>
                 </div>
                 <h3>Oversized Vibe</h3>
@@ -209,26 +325,61 @@
                 <div class="product-price">$29.99</div>
                 <button class="btn btn-primary btn-small">Add to Cart</button>
             </div>
-            
-            <!-- Bunch of Bananas -->
+
+            <!-- ===== 6. MYSTERY BOX ===== -->
             <div class="product-card">
                 <div class="product-image">
-                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg">
                         <defs>
-                            <linearGradient id="bunch" x1="0%" y1="0%" x2="0%" y2="100%">
-                                <stop offset="0%" style="stop-color:#FFD54F;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#FBC02D;stop-opacity:1" />
-                            </linearGradient>
+                            <linearGradient id="bg6" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#2a0e0e"/><stop offset="100%" stop-color="#1a0808"/></linearGradient>
+                            <linearGradient id="h6" x1="40%" y1="0%" x2="60%" y2="100%"><stop offset="0%" stop-color="#E53935"/><stop offset="100%" stop-color="#C62828"/></linearGradient>
+                            <linearGradient id="h6b" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#D32F2F"/><stop offset="100%" stop-color="#B71C1C"/></linearGradient>
+                            <linearGradient id="h6shade" x1="100%" y1="0%" x2="0%" y2="0%"><stop offset="0%" stop-color="#b81c1c"/><stop offset="40%" stop-color="#C62828" stop-opacity="0"/></linearGradient>
+                            <linearGradient id="mb1" x1="20%" y1="0%" x2="80%" y2="100%"><stop offset="0%" stop-color="#FFE88A"/><stop offset="40%" stop-color="#FDD835"/><stop offset="100%" stop-color="#F9A825"/></linearGradient>
+                            <linearGradient id="mb1h" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FFF9C4"/><stop offset="100%" stop-color="#FFE082"/></linearGradient>
+                            <filter id="d6"><feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#000" flood-opacity="0.3"/></filter>
+                            <filter id="d6b"><feDropShadow dx="0.5" dy="1" stdDeviation="1.5" flood-color="#000" flood-opacity="0.12"/></filter>
                         </defs>
-                        <!-- Left banana -->
-                        <ellipse cx="68" cy="100" rx="20" ry="62" fill="url(#bunch)" stroke="#F57F17" stroke-width="1.5" transform="rotate(-28 68 100)"/>
-                        <path d="M 55 42 Q 52 25 55 12" stroke="#6D4C41" stroke-width="2" fill="none" stroke-linecap="round"/>
-                        <!-- Center banana (larger) -->
-                        <ellipse cx="100" cy="105" rx="24" ry="70" fill="url(#bunch)" stroke="#F57F17" stroke-width="2"/>
-                        <path d="M 65 35 Q 60 15 63 3" stroke="#6D4C41" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-                        <!-- Right banana -->
-                        <ellipse cx="132" cy="100" rx="20" ry="62" fill="url(#bunch)" stroke="#F57F17" stroke-width="1.5" transform="rotate(28 132 100)"/>
-                        <path d="M 145 42 Q 148 25 145 12" stroke="#6D4C41" stroke-width="2" fill="none" stroke-linecap="round"/>
+                        <rect width="320" height="320" fill="url(#bg6)"/>
+                        <!-- Hoodie body -->
+                        <path d="M108 86 L88 90 L56 72 L38 96 L70 122 L70 266 Q70 276 80 276 L240 276 Q250 276 250 266 L250 122 L282 96 L264 72 L232 90 L212 86 Q192 72 160 72 Q128 72 108 86Z" fill="url(#h6)" stroke="#a01818" stroke-width="1" filter="url(#d6)"/>
+                        <path d="M240 122 L240 266 Q240 276 240 276 L214 276 L214 122Z" fill="url(#h6shade)" opacity="0.4"/>
+                        <!-- Hood -->
+                        <path d="M108 86 C114 58 134 48 160 44 C186 48 206 58 212 86" fill="#D32F2F" stroke="#b71c1c" stroke-width="0.8"/>
+                        <path d="M114 82 C118 60 136 52 160 48 C184 52 202 60 206 82" fill="url(#h6b)"/>
+                        <!-- Drawstrings -->
+                        <path d="M148 88 C146 100 144 114 140 126" stroke="#FFCDD2" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+                        <path d="M172 88 C174 100 176 114 180 126" stroke="#FFCDD2" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+                        <circle cx="139" cy="128" r="2" fill="#FFCDD2" opacity="0.7"/>
+                        <circle cx="181" cy="128" r="2" fill="#FFCDD2" opacity="0.7"/>
+                        <!-- Kangaroo pocket -->
+                        <path d="M116 212 Q116 200 132 196 L188 196 Q204 200 204 212 L204 240 Q204 248 194 248 L126 248 Q116 248 116 240Z" fill="#B71C1C" stroke="#9e1818" stroke-width="0.7"/>
+                        <line x1="160" y1="196" x2="160" y2="248" stroke="#a01818" stroke-width="0.4" opacity="0.5"/>
+                        <!-- Banana bunch -->
+                        <g filter="url(#d6b)" transform="translate(110, 104)">
+                            <!-- Left banana -->
+                            <g transform="rotate(-16, 30, 42)">
+                                <path d="M30 4 C22 10 16 22 12 36 C8 50 8 62 10 72 C12 78 16 82 20 84 L22 80 C18 76 16 70 14 62 C12 50 14 40 18 28 C22 18 26 10 30 8Z" fill="url(#mb1)" stroke="#d4960e" stroke-width="0.4"/>
+                                <path d="M30 8 C26 14 20 24 18 36 C14 48 14 58 16 66 C18 72 20 76 24 78 L26 74 C22 70 20 64 18 56 C16 46 18 36 22 28 C24 20 28 14 30 12Z" fill="url(#mb1h)"/>
+                                <path d="M28 14 C24 22 20 34 18 46 C16 54 16 62 18 68" stroke="rgba(255,255,255,0.35)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+                            </g>
+                            <!-- Center banana -->
+                            <path d="M50 2 C38 10 28 26 22 44 C16 60 14 76 18 88 C22 98 28 104 34 106 L36 102 C30 96 26 88 22 78 C18 64 20 50 26 34 C32 20 40 12 50 8Z" fill="url(#mb1)" stroke="#d4960e" stroke-width="0.5"/>
+                            <path d="M50 8 C42 14 32 28 26 44 C20 58 20 72 22 82 C26 92 30 98 36 100 L38 96 C34 90 30 84 28 74 C24 62 26 48 30 36 C36 24 44 16 50 12Z" fill="url(#mb1h)"/>
+                            <path d="M46 14 C38 26 30 42 26 58 C22 72 22 82 26 90" stroke="rgba(255,255,255,0.35)" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+                            <!-- Right banana -->
+                            <g transform="rotate(16, 70, 42)">
+                                <path d="M70 6 C62 12 56 24 52 38 C48 52 48 64 50 74 C52 80 56 84 60 86 L62 82 C58 78 56 72 54 64 C52 52 54 42 58 30 C62 20 66 12 70 10Z" fill="url(#mb1)" stroke="#d4960e" stroke-width="0.4"/>
+                                <path d="M70 10 C66 16 60 26 58 38 C54 50 54 60 56 68 C58 74 60 78 64 80 L66 76 C62 72 60 66 58 58 C56 48 58 38 62 30 C64 22 68 16 70 14Z" fill="url(#mb1h)"/>
+                                <path d="M68 16 C64 24 60 36 58 48 C56 56 56 64 58 70" stroke="rgba(255,255,255,0.35)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+                            </g>
+                            <!-- Stem cluster -->
+                            <path d="M26 6 C36 -4 48 -6 56 -4 C64 -2 72 4 74 8" stroke="#6d4c41" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                            <ellipse cx="50" cy="-2" rx="10" ry="5" fill="#8d6e63"/>
+                            <ellipse cx="50" cy="-2" rx="6" ry="3" fill="#a1887f"/>
+                        </g>
+                        <!-- ? in pocket -->
+                        <text x="160" y="234" text-anchor="middle" font-family="Georgia,serif" font-size="22" fill="#FFCDD2" font-weight="bold" opacity="0.5">?</text>
                     </svg>
                 </div>
                 <h3>Mystery Box</h3>
@@ -236,6 +387,7 @@
                 <div class="product-price">$34.99</div>
                 <button class="btn btn-primary btn-small">Add to Cart</button>
             </div>
+
         </div>
     </section>
     
